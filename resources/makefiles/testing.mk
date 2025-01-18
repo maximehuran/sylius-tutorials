@@ -2,7 +2,7 @@
 ### TESTS
 ### ¯¯¯¯¯
 
-test.all: test.composer test.phpstan test.phpunit test.phpspec test.phpcs test.phpmd test.yaml test.schema test.twig test.container ## Run all tests in once
+test.all: test.composer test.phpstan test.phpunit test.phpcs test.phpmd test.yaml test.schema test.twig test.container ## Run all tests in once
 
 test.composer: ## Validate composer.json
 	$(call symfony.composer,validate --strict)
@@ -12,9 +12,6 @@ test.phpstan: ## Run PHPStan
 
 test.phpunit: ## Run PHPUnit
 	${PHPUNIT}
-
-test.phpspec: ## Run PHPSpec
-	${PHPSPEC} run
 
 test.phpcs: ## Run PHP CS Fixer in dry-run
 	$(call symfony.composer,run -- phpcs --dry-run -v)

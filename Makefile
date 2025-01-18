@@ -9,7 +9,6 @@ COMPOSER=${SYMFONY} composer
 CONSOLE=${SYMFONY} console
 PHPSTAN=${SYMFONY} php vendor/bin/phpstan
 PHPUNIT=${SYMFONY} php vendor/bin/phpunit
-PHPSPEC=${SYMFONY} php vendor/bin/phpspec
 BASH_CONTAINER=php
 NO_FIXTURES_FILE=.no-fixtures
 BUILD_THEME_IN_DOCKER:=0
