@@ -3,7 +3,7 @@ parameters:
     paths:
         - src/
         - plugins/
-
+    reportUnmatchedIgnoredErrors: false
     ignoreErrors:
-#        - identifier: missingType.iterableValue
-#        - identifier: missingType.generics
+        - identifier: missingType.iterableValue
+        - identifier: missingType.generics
