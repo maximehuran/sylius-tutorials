@@ -5,7 +5,7 @@ declare(strict_types=1);
 $header = <<<'HEADER'
 This file is part of a proprietary project.
 
-(c) Monsieur Biz <sylius@monsieurbiz.com>
+(c) Maxime Huran <m.huran@monsieurbiz.com>
 
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
