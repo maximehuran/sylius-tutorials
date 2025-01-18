@@ -1,0 +1,9 @@
+parameters:
+    level: 8
+    paths:
+        - src/
+        - plugins/
+
+    ignoreErrors:
+#        - identifier: missingType.iterableValue
+#        - identifier: missingType.generics

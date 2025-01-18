@@ -48,10 +48,6 @@
 /package-lock.json
 ###< symfony/webpack-encore-bundle ###
 
-###> phpstan/phpstan ###
-phpstan.neon
-###< phpstan/phpstan ###
-
 ###> friends-of-behat/symfony-extension ###
 /behat.yml
 ###< friends-of-behat/symfony-extension ###
