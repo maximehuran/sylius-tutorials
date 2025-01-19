@@ -30,7 +30,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[SyliusCrudRoutes(
     alias: 'app.constructor',
     except: ['show'],
-    // form: ConstructorType::class,
+    form: ConstructorType::class,
     grid: ConstructorGrid::class,
     path: '/%sylius_admin.path_name%/constructors',
     permission: true,
