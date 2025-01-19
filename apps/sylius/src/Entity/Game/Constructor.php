@@ -13,17 +13,31 @@ declare(strict_types=1);
 
 namespace App\Entity\Game;
 
+use App\Form\Type\Game\ConstructorType;
+use App\Grid\Game\ConstructorGrid;
 use App\Repository\Game\ConstructorRepository;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Sylius\Component\Resource\Model\TimestampableTrait;
+use Sylius\Resource\Annotation\SyliusCrudRoutes;
 use Sylius\Resource\Metadata\AsResource;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ConstructorRepository::class)]
 #[ORM\Table(name: 'app_constructor')]
 #[AsResource]
+#[SyliusCrudRoutes(
+    alias: 'app.constructor',
+    except: ['show'],
+    // form: ConstructorType::class,
+    // grid: ConstructorGrid::class,
+    path: '/%sylius_admin.path_name%/constructors',
+    permission: true,
+    redirect: 'update',
+    section: 'admin',
+    templates: '@SyliusAdmin/shared/crud',
+)]
 class Constructor implements ConstructorInterface
 {
     use TimestampableTrait;
