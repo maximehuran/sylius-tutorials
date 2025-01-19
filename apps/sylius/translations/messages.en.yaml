@@ -1,0 +1,5 @@
+app:
+    menu:
+        games:
+            section: Games
+            constructor: Constructor
