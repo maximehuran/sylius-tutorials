@@ -31,7 +31,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     alias: 'app.constructor',
     except: ['show'],
     // form: ConstructorType::class,
-    // grid: ConstructorGrid::class,
+    grid: ConstructorGrid::class,
     path: '/%sylius_admin.path_name%/constructors',
     permission: true,
     redirect: 'update',
