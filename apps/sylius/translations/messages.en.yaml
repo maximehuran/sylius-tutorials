@@ -1,0 +1,10 @@
+app:
+    menu:
+        games:
+            section: Games
+            constructor: Constructor
+    ui:
+        constructors: Constructors
+        constructor: Constructor
+        name: Name
+        logo: Logo
