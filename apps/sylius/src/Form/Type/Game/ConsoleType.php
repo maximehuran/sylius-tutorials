@@ -13,16 +13,18 @@ declare(strict_types=1);
 
 namespace App\Form\Type\Game;
 
+use App\Entity\Game\Constructor;
+use Doctrine\ORM\EntityRepository;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 
-class ConstructorType extends AbstractResourceType
+class ConsoleType extends AbstractResourceType
 {
     public function __construct(
-        #[Autowire('%app.model.constructor.class%')]
+        #[Autowire('%app.model.console.class%')]
         string $dataClass,
         #[Autowire(['app'])]
         array $validationGroups = [],
@@ -44,17 +46,23 @@ class ConstructorType extends AbstractResourceType
                 'label' => 'app.ui.logo',
                 'required' => false,
             ])
-            ->add('consoles', LiveCollectionType::class, [
-                'entry_type' => ConsoleType::class,
-                'label' => 'app.ui.consoles',
-                'allow_add' => true,
-                'allow_delete' => true,
+            ->add('constructor', EntityType::class, [
+                'class' => Constructor::class,
+                'label' => 'app.ui.constructor',
+                'required' => false,
+                'choice_label' => 'name',
+                'autocomplete' => true,
+                'query_builder' => function (EntityRepository $repository) {
+                    return $repository->createQueryBuilder('o')
+                        ->orderBy('o.name', 'ASC')
+                    ;
+                },
             ])
         ;
     }
 
     public function getBlockPrefix(): string
     {
-        return 'app_constructor';
+        return 'app_console';
     }
 }

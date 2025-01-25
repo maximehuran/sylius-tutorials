@@ -1,0 +1,12 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.constructor.create.content':
+            form: &sylius_admin_constructor_form_properties
+                component: 'sylius_admin:constructor:form'
+                props:
+                    resource: '@=_context.resource'
+                    form: '@=_context.form'
+                    template: '@SyliusAdmin/shared/crud/common/content/form.html.twig'
+                priority: 0
+        'sylius_admin.constructor.update.content':
+            form: *sylius_admin_constructor_form_properties
