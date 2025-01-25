@@ -17,6 +17,8 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
+use Sylius\Bundle\AddressingBundle\Form\Type\ProvinceType;
 
 class ConstructorType extends AbstractResourceType
 {
@@ -42,6 +44,18 @@ class ConstructorType extends AbstractResourceType
             ->add('logo', TextType::class, [
                 'label' => 'app.ui.logo',
                 'required' => false,
+            ])
+            ->add('texts', LiveCollectionType::class, [
+                'mapped' => false,
+                'label' => 'app.ui.texts',
+                'entry_type' => TextType::class,
+                // 'prototype_name' => '__text__',
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                // 'attr' => [
+                //     'class' => 'ui segment secondary collection--flex',
+                // ],
             ])
         ;
     }
