@@ -17,6 +17,7 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 
 class ConstructorType extends AbstractResourceType
 {
@@ -42,6 +43,12 @@ class ConstructorType extends AbstractResourceType
             ->add('logo', TextType::class, [
                 'label' => 'app.ui.logo',
                 'required' => false,
+            ])
+            ->add('consoles', LiveCollectionType::class, [
+                'entry_type' => ConsoleType::class,
+                'label' => 'app.ui.consoles',
+                'allow_add' => true,
+                'allow_delete' => true,
             ])
         ;
     }
