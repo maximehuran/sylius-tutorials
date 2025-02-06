@@ -1,0 +1,11 @@
+sylius_fixtures:
+    suites:
+        default:
+            fixtures:
+                app_constructor:
+                    options:
+                        random: 10
+                        custom:
+                           - name: 'Nintendo'
+                           - name: 'Sony'
+                           - name: 'Microsoft'
