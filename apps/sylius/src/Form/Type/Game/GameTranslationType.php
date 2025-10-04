@@ -43,6 +43,6 @@ class GameTranslationType extends AbstractResourceType
 
     public function getBlockPrefix(): string
     {
-        return 'app_game';
+        return 'app_game_translation';
     }
 }
